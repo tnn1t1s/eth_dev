@@ -9,6 +9,8 @@ const { interface, bytecode } = require('../compile.js');
 let accounts;
 let counter;
 
+console.log(interface);
+
 beforeEach(async () => {
     accounts = await web3.eth.getAccounts();
     account_balance = await web3.eth.getBalance(accounts[0]);
