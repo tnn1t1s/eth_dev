@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "compile": "node ./compile.js",
     "test": "mocha"
   },
   "author": "",
