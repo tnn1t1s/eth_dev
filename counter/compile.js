@@ -1,29 +1,27 @@
 const path = require('path');
 const fs = require('fs');
 const solc = require('solc');
- 
-const CounterPath = path.resolve(__dirname, 'contracts', 'Counter.sol');
-const Countersol = fs.readFileSync(CounterPath, 'UTF-8');
- 
-var input = {
+
+const counterPath = path.resolve(__dirname, 'contracts', 'Counter.sol');
+const countersol = fs.readFileSync(counterPath, 'UTF-8');
+
+const input = {
     language: 'Solidity',
     sources: {
-        'Counter.sol': {content : Countersol}
+        'Counter.sol': { content: countersol }
     },
     settings: {
         outputSelection: {
             '*': {
-                '*': [ '*' ]
+                '*': ['*']
             }
         }
     }
 };
- 
-var output = JSON.parse(solc.compile(JSON.stringify(input)))
 
-contracts = output.contracts['Counter.sol'];
-contract = contracts['Counter'];
+const output = JSON.parse(solc.compile(JSON.stringify(input)));
+const contracts = output.contracts['Counter.sol'];
+const contract = contracts['Counter'];
 
- 
-module.exports = {"interface" : contract.abi,
-                  "bytecode" : contract.evm.bytecode.object};
+exports.interface = contract.abi;
+exports.bytecode = contract.evm.bytecode.object;
