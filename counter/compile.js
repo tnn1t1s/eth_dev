@@ -5,7 +5,7 @@ const solc = require('solc');
 const CounterPath = path.resolve(__dirname, 'contracts', 'Counter.sol');
 const Countersol = fs.readFileSync(CounterPath, 'UTF-8');
  
-var input = {
+const input = {
     language: 'Solidity',
     sources: {
         'Counter.sol': {content : Countersol}
@@ -19,7 +19,7 @@ var input = {
     }
 };
  
-var output = JSON.parse(solc.compile(JSON.stringify(input)))
+output = JSON.parse(solc.compile(JSON.stringify(input)))
 
 contracts = output.contracts['Counter.sol'];
 contract = contracts['Counter'];
