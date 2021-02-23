@@ -27,7 +27,7 @@ beforeEach(async () => {
 });
 
 
-describe('Hello', () => {
+describe('Counter', () => {
     it('deploys a contract', () => {
         assert.ok(counter.options.address);
     });
