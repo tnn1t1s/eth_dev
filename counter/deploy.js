@@ -8,10 +8,12 @@ const { interface, bytecode } = require('./compile.js');
 const ropsten_endpoint = 'https://ropsten.infura.io/v3/c68405b604f443f6b64cdd363a0282cf'
 const mnemonic = 'alert baby immune ride daughter clerk loyal group ready oppose tooth increase'
 
+
 const provider = new HDWalletProvider(
      mnemonic,
      ropsten_endpoint
 );
+
 
 const web3 = new Web3(provider);
 
@@ -29,4 +31,6 @@ const deploy = async () => {
 console.log('about to deploy ...');
 deploy().then( () => {
      console.log('deployed');
+     process.exit();
 });
+
