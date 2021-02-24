@@ -2,7 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const solc = require('solc');
  
-const CounterPath = path.resolve(__dirname, 'contracts', 'Counter.sol');
+const CounterPath = path.resolve(__dirname, 'contracts/counter', 'Counter.sol');
 const Countersol = fs.readFileSync(CounterPath, 'UTF-8');
  
 const input = {
