@@ -5,8 +5,8 @@ const solc = require('solc');
 
 /**
  * Returns a `contract` where
- * the "interface" is contract.abi and
- * the "bytecode" is contract.evm.bytecode.object
+ * the contract "interface" is contract.abi and
+ * the compiled "bytecode" is contract.evm.bytecode.object
  *
  * @param {string} contractUri The path to the contract source
  * @return {contract} a solc compiled contract object
@@ -30,8 +30,8 @@ const compile = (contractUri) => {
     };
     input['sources'][contractFilename] = {content : contractSource };
     output = JSON.parse(solc.compile(JSON.stringify(input)))
-    contracts = output.contracts['Counter.sol'];
-    contract = contracts['Counter'];
+    contracts = output.contracts[contractFilename];
+    contract = contracts[contractName];
     return contract;
 };
 
