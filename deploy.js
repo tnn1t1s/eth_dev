@@ -3,24 +3,21 @@
 
 const HDWalletProvider = require('truffle-hdwallet-provider');
 const Web3 = require('web3');
-const { interface, bytecode } = require('./compile.js');
+const web3 = new Web3(provider);
+const utils = require('./utils.js');
 
 const ropsten_endpoint = 'https://ropsten.infura.io/v3/c68405b604f443f6b64cdd363a0282cf'
 const mnemonic = 'alert baby immune ride daughter clerk loyal group ready oppose tooth increase'
-
 
 const provider = new HDWalletProvider(
      mnemonic,
      ropsten_endpoint
 );
 
+const contract = utils.compile('./contract/counter/Counter.sol');
+const interface = contract.abi;
+const bytecode = contract.evm.bytecode.object;
 
-const web3 = new Web3(provider);
-
-console.log(web3.eth);
-
-
-// async/await can only exist in a function
 const deploy = async () => {
      const accounts = await web3.eth.getAccounts();
      console.log('Attempting to deploy from account',accounts[0]);
@@ -33,4 +30,3 @@ deploy().then( () => {
      console.log('deployed');
      process.exit();
 });
-
