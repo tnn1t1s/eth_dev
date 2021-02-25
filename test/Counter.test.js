@@ -4,17 +4,19 @@ const Web3 = require('web3');
 
 // ganache is an ethereum network provider that runs locally
 const web3 = new Web3(ganache.provider());
-const { interface, bytecode } = require('../compile.js');
+const utils = require('../utils.js');
 
+let interface, bytecode; 
 let accounts;
 let counter;
 
-console.log(interface);
-
 beforeEach(async () => {
+    contract = utils.compile('./contracts/counter/Counter.sol');
     accounts = await web3.eth.getAccounts();
     account_balance = await web3.eth.getBalance(accounts[0]);
-    
+    interface = contract.abi;
+    bytecode = contract.evm.bytecode.object;
+  
     estimated_gas = await new web3.eth.Contract(interface)
         .deploy({ data: bytecode, arguments: [0] })
         .estimateGas({from: accounts[0]});
