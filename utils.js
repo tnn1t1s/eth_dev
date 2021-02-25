@@ -1,0 +1,38 @@
+const fs = require('fs');
+const path = require('path');
+const solc = require('solc');
+
+
+/**
+ * Returns a `contract` where
+ * the "interface" is contract.abi and
+ * the "bytecode" is contract.evm.bytecode.object
+ *
+ * @param {string} contractUri The path to the contract source
+ * @return {contract} a solc compiled contract object
+ */
+const compile = (contractUri) => {
+    const contractParts = path.parse(contractUri);
+    const contractFilename = contractParts.base;
+    const contractName = contractParts.name;
+    const contractSource = fs.readFileSync(contractUri, 'UTF-8');
+    const input = {
+        language: 'Solidity',
+        sources: {
+        },
+        settings: {
+            outputSelection: {
+                '*': {
+                    '*': [ '*' ]
+                }
+            }
+        }
+    };
+    input['sources'][contractFilename] = {content : contractSource };
+    output = JSON.parse(solc.compile(JSON.stringify(input)))
+    contracts = output.contracts['Counter.sol'];
+    contract = contracts['Counter'];
+    return contract;
+};
+
+module.exports = {'compile' : compile};
