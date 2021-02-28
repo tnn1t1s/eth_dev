@@ -4,6 +4,7 @@ pragma solidity >=0.4.16 <0.9.0;
 contract Lottery {
      address public manager;
      address payable[] public players;
+     address[] public players_f;
     
      constructor() {
           manager = msg.sender;
@@ -11,7 +12,7 @@ contract Lottery {
 
      function enter() public payable {
          require(msg.value > 0.1 ether);
-         players.push(msg.sender); 
+         players.push(payable(msg.sender));
      }
      
      function random() private view returns (uint256) {
@@ -38,8 +39,5 @@ contract Lottery {
          require(msg.sender == manager);
          _;
      }
-     
-     
 }
-
 
