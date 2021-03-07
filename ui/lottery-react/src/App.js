@@ -38,14 +38,20 @@ class App extends Component {
   onSubmit = async (event) => {
     event.preventDefault();
     this.setState({message: 'waiting ...'});
-    console.log('onsubmit');
     await lottery.contract.enter({
             from: this.account,
             value: ethers.utils.parseEther(this.state.value)
     });
-    console.log('/onsubmit');
     this.setState({message: 'you have been entered'});
   };
+
+  onClick = async () => {
+    this.setState({message: 'picking winner ...'});
+    await lottery.contract.payWinner({
+            from: this.account
+    });
+    this.setState({message: 'picked a winner ...'});
+  }
 
   render() {
     return (
@@ -74,6 +80,9 @@ class App extends Component {
         </form>
         <hr />
         <h1>{this.state.message}</h1>
+        <hr />
+        <h4>Pick a winner?</h4>
+        <button onClick={this.onClick}>Pick a winner.</button>
       </div>
     );
   }

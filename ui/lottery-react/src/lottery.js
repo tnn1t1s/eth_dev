@@ -6,7 +6,8 @@ const abi = [
     "function manager() view returns (address)",
     "function getPlayers() view returns (address[])",
     //Transaction Functions
-    "function enter() public payable"
+    "function enter() public payable",
+    "function payWinner() public"
 
 ];
 
