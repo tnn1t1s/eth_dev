@@ -4,7 +4,6 @@ pragma solidity >=0.4.16 <0.9.0;
 contract Lottery {
      address public manager;
      address payable[] public players;
-     address[] public players_f;
     
      constructor() {
           manager = msg.sender;
