@@ -1,11 +1,26 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.16 <0.9.0;
 
+
+contract CampaignFactory {
+     address[] public deployedCampaigns;
+
+     function createCampaign(uint minimum) public {
+         Campaign campaign = new Campaign(minimum,
+                                         msg.sender);
+         deployedCampaigns.push(address(campaign));
+     }
+
+     function getDeployedCampaigns() public view returns (address[] memory) {
+          return deployedCampaigns;
+     }
+}
+
 contract Campaign {
      struct Request {
          string description;
          uint value;
-         address recipient;
+         address payable recipient;
          bool complete;
          uint approvalCount;
          mapping(address => bool) approvals;
@@ -15,29 +30,27 @@ contract Campaign {
      Request[] public requests;
      uint public minContribution;
      mapping(address => bool) public approvers;
-     unit public approversCount;
+     uint public approversCount;
 
      modifier restricted() {
          require(msg.sender == manager);
          _;
      }
-   
-     constructor(uint minimum) {
-         manager = msg.sender;
+
+     constructor(uint minimum, address creator) {
+         manager = creator;
          minContribution = minimum;
      }
 
-     function createRequest(string description,
+     function createRequest(string memory description,
                             uint value,
-                            address recipient) public restricted {
-          Request request = Request({
-                  description: description,
-                  value: value,
-                  recipient: recipient,
-                  complete: false,
-                  approvalCount: 0});
-
-          requests.push(request);
+                            address payable recipient) public restricted {
+          Request storage newRequest = requests.push();
+          newRequest.description = description;
+          newRequest.value = value;
+          newRequest.recipient = recipient;
+          newRequest.complete = false;
+          newRequest.approvalCount = 0;
      }
 
      function  approveRequest(uint index) public {
