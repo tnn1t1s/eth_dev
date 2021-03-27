@@ -1,11 +1,8 @@
 # eth_dev
-This repo collects study notes and code for the Udemy online course at https://www.udemy.com/course/ethereum-and-solidity-the-complete-developers-guide/learn/lecture/8784912#overview
+Ethereum and Solidity, the Complete Developers Guide is an online course offerd by Udemy and presented by Steve Brehtin. The content is well organized and useful in building understanding of the ethereum platform, however, the course is extremely outdated at this point and requires significant reworking to run on a modern Ethereum software stack. The repo presents updated examples using the followign:
+** Ports from web3 to the Ethers library
+** Updated to support Solidity > 0.8
+** Next examples using Next v.X with React v.X
+** Added tests and standalone utilities for Infura integration on Ropsten network
 
-# March 6, 2021
-I'm more than halfway done the course. By far, the most challenging part has been rewriting the contracts in Solidity 8.0 and dealing with the move from `web3` to `ethers`
-
-# TODO
-- migrate all the contract test code to use `ethers` 
-- cleanup the lottery web application
-- write docstrings and a medium post
-- start building the NFT transfer capabilities
+The course is available here: https://www.udemy.com/course/ethereum-and-solidity-the-complete-developers-guide/learn/lecture/8784912#overview
