@@ -20,15 +20,24 @@ let campaign;
 
 
 beforeEach(async () => {
-    provider = new ethers.getDefaultProvider(providerUrl);
-    accounts = await provider.listAccounts();
+    provider = new ethers.providers.getDefaultProvider(providerUrl);
     signer = provider.getSigner(0);
-    console.log(accounts);
 });
 
-describe('Campaign Contract', () => {
-     it('finds a provider with at least one account and a signer', () => {
-         assert.ok(accounts[0]);
+describe('Campaign Contract', function () {
+     this.timeout(10000);
+     it('gets a provider and a signer', async () => {
+         assert.ok(provider);
          assert.ok(signer);
+     });
+
+     it('creates campaign factory and gets campaigns', async () => {
+         campaignFactoryAddress='0x4DFa366566ce1f1493241B8A726b7b52ca538fdd'
+         campaignFactory = new 
+                     ethers.Contract(campaignFactoryAddress,
+                                     campaignFactoryContract.abi,
+                                     provider);
+         campaign = await campaignFactory.getDeployedCampaigns();
+         assert.ok(campaign);
      });
 });
