@@ -16,6 +16,9 @@ let factory;
 let campaignFactory;
 let campaign;
 
+// note: ganache local network must be runnig for tests to succeed
+// ./node_modules/.bin/ganache-cli
+// TODO: what is best practice here? check for runnig? start network in beforeEach?
 beforeEach(async () => {
     provider = new ethers.providers.JsonRpcProvider(providerUrl);
     accounts = await provider.listAccounts();
@@ -69,5 +72,7 @@ describe('Campaign Contract', () => {
 
      it('allows manager to make payment request', async () => {
         await campaign.createRequest('x','1000', accounts[2]);
+        const request = await campaign.requests(0);
+        assert.equal('x', request.description);
      });
 });
