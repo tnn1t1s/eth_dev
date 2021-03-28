@@ -9,7 +9,6 @@ const factory_abi = [
     "function getDeployedCampaigns() view returns (address[])",
     //Transaction Functions
     "function createCampaign(uint) public"
-
 ];
 
 let contract = undefined;

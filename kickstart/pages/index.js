@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {signer, provider} from '../ethereum/ethers';
 import contract from '../ethereum/factory';
+import { Card, Button } from 'semantic-ui-react';
+import Layout from '../components/Layout';
+
+
 
 class CampaignIndex extends Component {
-    state = {
-        campaigns: []
-    }
-
     /* getInitialProps is specific to Next framework
      * it allows for upfront data loading on server
      * it is `static` to allow for data fetching
@@ -17,8 +17,33 @@ class CampaignIndex extends Component {
         return { campaigns };
     }
 
+    renderCampaigns() {
+        const items = this.props.campaigns.map(address => {
+            return {
+                header: address,
+                description: <a>View Campaign</a>,
+                fluid: true // fit to page
+            };
+        });
+        
+        return <Card.Group items={items} />;
+    }
+
     render() {
-        return <div>{this.props.campaigns[0]}</div>
+        return ( 
+            <Layout>
+              <div>
+              <h3>open campaigns</h3>
+              <Button
+                floated="right"
+                content="Create Campaign"
+                icon="add circle"
+                primary
+              />
+              {this.renderCampaigns()}
+              </div>
+            </Layout>
+        );
     }
 }
 
