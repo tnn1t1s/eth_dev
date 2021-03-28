@@ -15,21 +15,11 @@ let provider, signer;
 
 if (typeof window !== 'undefined' && typeof window.ethereum !== 'undefined') {
    // browser w/ metamask execution
-   console.log('>> browser execution');
-   console.log(window);
-   console.log(window.ethereum);
    provider = new ethers.providers.Web3Provider(window.ethereum);
    signer = provider.getSigner()
-   console.log(provider);
-   console.log('<< browser execution');
 } else {
-   //const HDWalletProvider = require('truffle-hdwallet-provider');
-   // server execution
-   // setup our own provider through Infura
-   //const wallet_provider = new HDWalletProvider(
-   //     mnemonic,
-   //     ropsten_endpoint
-   //);
+   provider = ethers.getDefaultProvider(ropsten_endpoint);
+   signer = provider.getSigner()
 }
 
 export {provider, signer};

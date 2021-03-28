@@ -14,12 +14,10 @@ const factory_abi = [
 
 let contract = undefined;
 
-if (signer != undefined) {
-    contract = new ethers.Contract(address,
-                                   factory_abi,
-                                   signer);
-    console.log('contract ...');
-    console.log(contract);
-}
+contract = new ethers.Contract(address,
+                               factory_abi,
+                               provider);
+console.log('contract ...');
+console.log(contract);
 
 export default contract;

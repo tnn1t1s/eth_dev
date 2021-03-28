@@ -6,6 +6,7 @@ class CampaignIndex extends Component {
     state = {
         campaigns: []
     }
+
     /* getInitialProps is specific to Next framework
      * it allows for upfront data loading on server
      * it is `static` to allow for data fetching
@@ -15,13 +16,6 @@ class CampaignIndex extends Component {
         const campaigns = await contract.getDeployedCampaigns();
         return { campaigns };
     }
-    /*
-    async componentDidMount() {
-        await window.ethereum.enable();
-        const campaigns = await contract.getDeployedCampaigns();
-        this.setState({campaigns});
-    }
-    */
 
     render() {
         return <div>{this.props.campaigns[0]}</div>
