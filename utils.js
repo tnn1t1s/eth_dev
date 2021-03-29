@@ -15,7 +15,7 @@ const solc = require('solc');
 const compile = (contractUri) => {
     const contractParts = path.parse(contractUri);
     const contractFilename = contractParts.base;
-    const contractName = contractParts.name;
+    //const contractName = contractParts.name;
     const contractSource = fs.readFileSync(contractUri, 'UTF-8');
     const input = {
         language: 'Solidity',
@@ -34,8 +34,8 @@ const compile = (contractUri) => {
     if(output['errors'])
          return output;
     contracts = output.contracts[contractFilename];
-    contract = contracts[contractName];
-    return contract;
+    //contract = contracts[contractName];
+    return contracts;
 };
 
 module.exports = {'compile' : compile};
