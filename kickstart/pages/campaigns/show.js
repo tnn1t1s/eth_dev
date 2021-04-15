@@ -14,7 +14,8 @@ class CampaignShow extends Component {
             balance: summary[1].toString(),
             requestCount: summary[2].toString(),
             approversCount: summary[3].toString(),
-            manager: summary[4]
+            manager: summary[4],
+            address: props.query.address
         };
     }
 
@@ -72,7 +73,7 @@ class CampaignShow extends Component {
                   {this.renderCards()}
                 </Grid.Column>
                 <Grid.Column width={4}>
-                  <ContributeForm />
+                  <ContributeForm address={this.props.address} />
                 </Grid.Column>
               </Grid>
             </Layout>
