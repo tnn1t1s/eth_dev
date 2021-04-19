@@ -92,6 +92,13 @@ contract Campaign {
          return requests.length;
      }
 
-
+     function getRequest(uint index) public view returns (string memory, uint, uint) {
+         Request storage request = requests[index];
+         return (
+            request.description,
+            request.value,
+            request.approvalCount
+         );
+     }
 }
 
