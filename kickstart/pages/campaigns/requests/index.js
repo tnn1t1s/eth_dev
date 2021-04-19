@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Button, Table } from 'semantic-ui-react';
 import { Link } from '../../../routes';
 import Layout from '../../../components/Layout';
-import {ethers} from 'ethers';
 import Campaign from '../../../ethereum/campaign';
 import RequestRow from '../../../components/RequestRow';
 
@@ -48,7 +47,7 @@ class RequestIndex extends Component {
         <h3>Requests</h3>
           <Link route={`/requests/${this.props.address}/new`}>
             <a>
-              <Button primary>Add Request</Button>
+              <Button primary floated="right" style={{ marginBottom: 10 }}>Add Request</Button>
             </a>
           </Link>
           <Table>
@@ -66,6 +65,7 @@ class RequestIndex extends Component {
               {this.renderRows()}
             </Body>
           </Table>
+          <div>Found {this.props.requestCount.toString()} requests.</div>
       </Layout>
     );
   }

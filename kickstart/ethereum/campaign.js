@@ -10,6 +10,7 @@ const campaign_abi = [
     //Transaction Functions
     "function contribute() public payable",
     "function approveRequest(uint) public",
+    "function finalizeRequest(uint) restricted",
     "function createRequest(string description, uint value, address recipient) public"
 ];
 

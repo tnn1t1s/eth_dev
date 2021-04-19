@@ -8,8 +8,13 @@ class RequestRow extends Component {
     onApprove = async () => {
       const campaign = Campaign(this.props.address);
       await campaign.approveRequest(this.props.id);
-
     };
+
+    onFinalize = async () => {
+      const campaign = Campaign(this.props.address);
+      await campaign.finalizeRequest(this.props.id);
+    };
+
     render() {
       const { Row, Cell } = Table;
       const { id, request, approversCount } = this.props;
@@ -28,7 +33,7 @@ class RequestRow extends Component {
               <Button color="green" basic onClick={this.onApprove}>Approve</Button>
           </Cell>
           <Cell>
-              <Button color="green" basic>Finalize</Button>
+              <Button color="teal" basic onClick={this.onFinalize}>Finalize</Button>
           </Cell>
         </Row>
       );
