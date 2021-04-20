@@ -1,4 +1,4 @@
-irequire('babel-register');
+require('babel-register');
 require('babel-polyfill');
 
 module.exports = {
@@ -9,10 +9,11 @@ module.exports = {
       network_id: "*" // Match any network id
     },
   },
-  contracts_directory: './src/contracts/',
-  contracts_build_directory: './src/abis/',
+  contracts_directory: './ethereum/contracts/',
+  contracts_build_directory: './ethereum/abis/',
   compilers: {
     solc: {
+      version: "0.8.0",
       optimizer: {
         enabled: true,
         runs: 200
