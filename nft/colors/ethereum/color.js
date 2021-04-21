@@ -1,12 +1,8 @@
 import {ethers} from 'ethers';
 import {provider, signer} from './ethers.js';
+import Color from './abis/Color.json'
 
-const color_abi = [
-    // Read-Only Functions
-    "function totalSupply() public view returns (uint)"
-    // Transaction Functions
-];
-
+const color_abi = Color.abi;
 
 export default (address) => {
   let contract;
