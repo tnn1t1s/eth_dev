@@ -15,10 +15,16 @@ class Colors extends Component {
      */
     static async getInitialProps() {
         const address = '0x057521539ADD8433F8e2a17b67cC3703DaCd2CC5'
-        const color = Color(address);
-        const _totalSupply = await color.totalSupply();
+        const contract = Color(address);
+        const _totalSupply = await contract.totalSupply();
         const totalSupply = ethers.BigNumber.from(_totalSupply).toString();
-        return { totalSupply };
+        // load the colors
+        let colors = []
+        for (var i = 1; i <= totalSupply; i++) {
+          const color = await contract.colors(i - 1);
+          colors.push(color);
+        }
+        return { totalSupply, colors };
     }
 
     render() {
@@ -26,6 +32,16 @@ class Colors extends Component {
           <Layout>
             <div>Colors</div>
             <div>{this.props.totalSupply}</div>
+            <div className="row text-center">
+              { this.props.colors.map((color, key) => {
+              return(
+                <div key={key} className="col-md-3 mb-3">
+                  <div className="token" style={{ backgroundColor: color }}></div>
+                  <div>{color}</div>
+                </div>
+              )
+            })}
+            </div>
           </Layout>
     );
   }
