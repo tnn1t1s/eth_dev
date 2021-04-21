@@ -17,3 +17,5 @@ I reworked this tutorial to support React > 17, Solidity 0.8 and the very much r
 This oreilly book seems solid. work through it.
 
 https://www.oreilly.com/library/view/mastering-blockchain-programming/9781839218262/d1f68aa4-1575-45f8-8e88-0e08a154ff60.xhtml
+
+https://anallergytoanalogy.medium.com/jumping-into-solidity-the-erc721-standard-part-2-383438734de5
