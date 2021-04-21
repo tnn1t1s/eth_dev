@@ -3,6 +3,7 @@ import {provider, signer} from './ethers.js';
 
 const color_abi = [
     // Read-Only Functions
+    "function totalSupply() public view returns (uint)"
     // Transaction Functions
 ];
 
