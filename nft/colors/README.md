@@ -8,8 +8,27 @@ Download [ganache-2.5.4-linux-x86_64.AppImage](https://www.trufflesuite.com/gana
 Run Ganache and verify that you have a working blockchain. It is recommended to always run ganache from this directory rather than installing in a global location as version mismatches can be difficult to debug.
  
 ## Getting Started
+Before starting the application, run the tests to ensure blockchain operations. It is best to use the intstance of truffle deployed to this project, rather than a globally installed instance. This will ensure project compatibility with other packages in package.json and truffle-config.js.
 
-With Ganache running, run the React development server:
+./node_modules/.bin/truffle test
+
+Once the tests pass, deploy the contracts to your local blockchain with the following:
+
+./node_modules/.bin/truffle migrate --reset
+
+If deployment is successful, you can interact with the contract using the truffle console
+
+./node_modules/.bin/truffle console
+
+To demonstrate this capability, mint a ColorPunx NFT Token:
+
+```
+truffle(development) contract = await Color.deployed()
+truffle(development) await contract.mint('#FFFFFF')
+```
+
+Now, with Ganache running, run the React development server:
+
 
 ```bash
 npm run dev
