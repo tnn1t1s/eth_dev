@@ -10,15 +10,15 @@ Run Ganache and verify that you have a working blockchain. It is recommended to 
 ## Getting Started
 Before starting the application, run the tests to ensure blockchain operations. It is best to use the intstance of truffle deployed to this project, rather than a globally installed instance. This will ensure project compatibility with other packages in package.json and truffle-config.js.
 
-./node_modules/.bin/truffle test
+```./node_modules/.bin/truffle test```
 
 Once the tests pass, deploy the contracts to your local blockchain with the following:
 
-./node_modules/.bin/truffle migrate --reset
+```./node_modules/.bin/truffle migrate --reset```
 
 If deployment is successful, you can interact with the contract using the truffle console
 
-./node_modules/.bin/truffle console
+```./node_modules/.bin/truffle console```
 
 To demonstrate this capability, mint a ColorPunx NFT Token:
 
