@@ -35,10 +35,10 @@ class Colors extends Component {
             <div className="row text-center">
               { this.props.colors.map((color, key) => {
               return(
-                <div key={key} className="col-md-3 mb-3">
-                  <div className="token" style={{ backgroundColor: color }}></div>
+                <div key={key}>
+                  <div className="token" style={{ backgroundColor: color }}>{color}</div>
                   <div>{color}</div>
-                </div>
+                  </div>
               )
             })}
             </div>
