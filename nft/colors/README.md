@@ -39,6 +39,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Learn More
 To learn more about testing on public nets, try the following guide: [Connecting to Public Test Networks with Truffle](https://forum.openzeppelin.com/t/connecting-to-public-test-networks-with-truffle/2960)
 
+To learn about transferring NFTs to your friends and family, follow this guide [Transferring ERC721 tokens](https://forum.openzeppelin.com/t/transferring-erc721-tokens/4726). 
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
