@@ -1,3 +1,6 @@
+const { endpoint, mnemonic, projectId, projectSecret } = require('./secrets.json');
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 require('babel-register');
 require('babel-polyfill');
 
@@ -8,6 +11,14 @@ module.exports = {
       port: 7545,
       network_id: "*" // Match any network id
     },
+    ropsten: {
+      provider: () => new HDWalletProvider(mnemonic, endpoint),
+      network_id: 3, //Ropsten's id
+      gas: 5500000,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    }
   },
   contracts_directory: './ethereum/contracts/',
   contracts_build_directory: './ethereum/abis/',

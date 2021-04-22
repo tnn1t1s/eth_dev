@@ -10,8 +10,10 @@
   "dependencies": {
     "@babel/register": "^7.13.16",
     "@openzeppelin/contracts": "^4.0.0",
+    "@truffle/hdwallet-provider": "^1.2.6",
     "babel-polyfill": "^6.26.0",
     "babel-register": "^6.26.0",
+    "bootstrap": "^4.6.0",
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "ethers": "^5.1.2",
