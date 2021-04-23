@@ -41,6 +41,8 @@ To learn more about testing on public nets, try the following guide: [Connecting
 
 To learn about transferring NFTs to your friends and family, follow this guide [Transferring ERC721 tokens](https://forum.openzeppelin.com/t/transferring-erc721-tokens/4726). 
 
+To learn about adding meta data to NFTs for integration with Metamask and Opensea, and how to list and sell on OpenSea, watch [this excellent tutorial](https://www.youtube.com/watch?v=p36tXHX1JD8).
+
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
