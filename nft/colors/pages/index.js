@@ -14,7 +14,8 @@ class Colors extends Component {
      * without instantiation of the Component
      */
     static async getInitialProps() {
-        const address = '0x057521539ADD8433F8e2a17b67cC3703DaCd2CC5'
+        //const address = '0x057521539ADD8433F8e2a17b67cC3703DaCd2CC5'
+        const address = '0x94b64a0b066b24B15106d196ec9c1290ca405F8C';
         const contract = Color(address);
         const _totalSupply = await contract.totalSupply();
         const totalSupply = ethers.BigNumber.from(_totalSupply).toString();

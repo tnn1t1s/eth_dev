@@ -3,7 +3,7 @@ import {ethers} from 'ethers';
 const ropsten_endpoint = 'https://ropsten.infura.io/v3/c68405b604f443f6b64cdd363a0282cf'
 const ganache_endpoint = 'http://localhost:7545'
 const mnemonic = 'alert baby immune ride daughter clerk loyal group ready oppose tooth increase'
-const endpoint = ganache_endpoint;
+const endpoint = ropsten_endpoint;
 
 let provider, signer, contract;
 
