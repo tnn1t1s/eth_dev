@@ -1,0 +1,15 @@
+{"ropsten":{
+        "endpoint":"https://ropsten.infura.io/v3/c68405b604f443f6b64cdd363a0282cf",
+        "projectId": "c68405b604f443f6b64cdd363a0282cf",
+        "projectSecret": "3ba6155cb3414e3e96927755d42097cc",
+        "mnemonic":"alert baby immune ride daughter clerk loyal group ready oppose tooth increase",
+        "contract":"0x94b64a0b066b24B15106d196ec9c1290ca405F8C"},
+ "ganache":{
+        "endpoint":"http://localhost:7545",
+        "projectid":"BLUE-EYED TALK",
+        "projectSecret":"",
+        "mnemonic":"motor account harvest material carpet game obvious earth slogan twice vintage route",
+        "contract":"0x057521539ADD8433F8e2a17b67cC3703DaCd2CC5"
+}}
+
+
