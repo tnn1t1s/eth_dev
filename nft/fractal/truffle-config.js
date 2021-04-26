@@ -1,4 +1,4 @@
-const { endpoint, mnemonic, projectId, projectSecret } = require('./secrets.json');
+const { endpoint, mnemonic, projectId, projectSecret } = require('./config.json');
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require('babel-register');
@@ -20,11 +20,11 @@ module.exports = {
       skipDryRun: true
     }
   },
-  contracts_directory: './ethereum/contracts/',
-  contracts_build_directory: './ethereum/abis/',
+  contracts_directory: './contracts/',
+  contracts_build_directory: './abis/',
   compilers: {
     solc: {
-      version: "0.8.0",
+      version: "0.6.6",
       optimizer: {
         enabled: true,
         runs: 200

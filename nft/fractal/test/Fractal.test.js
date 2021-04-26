@@ -1,15 +1,15 @@
-const Color = artifacts.require('./Color.sol');
+const Fractal = artifacts.require('./Fractal.sol');
 
 require('chai')
   .use(require('chai-as-promised'))
   .should()
 
 
-contract('Color', (accounts) => {
+contract('Fractal', (accounts) => {
   let contract;
 
   before(async () => {
-    contract = await Color.deployed();
+    contract = await Fractal.deployed();
   });
 
   describe('deployment', async() => {
@@ -22,7 +22,7 @@ contract('Color', (accounts) => {
 
     it('has a name', async () => {
       const name = await contract.name();
-      assert.equal(name, 'Color');
+      assert.equal(name, 'Fractal');
     });
 
     it('has a symbol', async () => {
@@ -45,13 +45,13 @@ contract('Color', (accounts) => {
       assert.equal(event.from, from, 'from is correct')
       assert.equal(event.to,
                    accounts[0], 'to is correct')
-      // FAILURE: cannot mint same color twice
+      // FAILURE: cannot mint same fractal twice
       await contract.mint('#EC058E').should.be.rejected;
     });
   });
 
   describe('indexing', async() => {
-    it('lists colors', async () => {
+    it('lists fractals', async () => {
       // Mint 3 more tokens
       await contract.mint('#000000');
       await contract.mint('#FFFFFF');
@@ -60,12 +60,12 @@ contract('Color', (accounts) => {
       const totalSupply = await contract.totalSupply();
 
 
-      let color
+      let fractal
       let result = [];
 
       for (var i = 1; i <= totalSupply; i++) {
-        color = await contract.colors(i - 1)
-        result.push(color)
+        fractal = await contract.fractals(i - 1)
+        result.push(fractal)
       };
 
       let expected = ['#EC058E',

@@ -1,5 +1,5 @@
-const Color = artifacts.require("Color");
+const Fractal = artifacts.require("Fractal");
 
 module.exports = function(deployer) {
-  deployer.deploy(Color);
+  deployer.deploy(Fractal);
 };
