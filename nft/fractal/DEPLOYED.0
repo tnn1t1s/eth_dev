@@ -1,0 +1,24 @@
+Deploying 'Fractal'
+   -------------------
+   > transaction hash:    0x41a532fd7114237d640fd338f561a5de2396e274647c11bff029335b0481be01
+   > Blocks: 1            Seconds: 4
+   > contract address:    0xB9448F961961227b0A2AA2554FCfFDee1087080f
+   > block number:        24510902
+   > block timestamp:     1619568876
+   > account:             0x0e364e3634f9403dFcC8a1A1B8d513cee7bDC0bB
+   > balance:             3.9183050314
+   > gas used:            3239774 (0x316f5e)
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.06479548 ETH
+
+   Pausing for 2 confirmations...
+   ------------------------------
+   > confirmation number: 1 (block: 24510903)
+   > confirmation number: 2 (block: 24510904)
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.06479548 ETH
+
