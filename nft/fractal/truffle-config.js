@@ -1,8 +1,10 @@
-const { endpoint, mnemonic, projectId, projectSecret } = require('./config.json');
+const { ropsten, kovan } = require('./config.json');
+const { endpoint, networkId, mnemonic, projectId, projectSecret } = kovan;
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require('babel-register');
 require('babel-polyfill');
+require('dotenv').config();
 
 module.exports = {
   networks: {
@@ -13,7 +15,7 @@ module.exports = {
     },
     ropsten: {
       provider: () => new HDWalletProvider(mnemonic, endpoint),
-      network_id: 3, //Ropsten's id
+      network_id: networkId, 
       gas: 5500000,
       confirmations: 2,
       timeoutBlocks: 200,
@@ -22,6 +24,12 @@ module.exports = {
   },
   contracts_directory: './contracts/',
   contracts_build_directory: './abis/',
+  plugins: [
+    'truffle-plugin-verify'
+  ],
+  api_keys: {
+    etherscan: process.env.ETHERSCAN_API_KEY
+  },
   compilers: {
     solc: {
       version: "0.6.6",

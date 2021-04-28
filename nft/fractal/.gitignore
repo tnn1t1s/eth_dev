@@ -11,11 +11,13 @@
 
 # r&d
 /chainlink
+/delivery-link
 
-# testing
+# testing & config
 /coverage
 /ethereum/abis
 /secrets.json
+/.env
 
 # next.js
 /.next/
