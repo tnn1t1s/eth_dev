@@ -1,5 +1,10 @@
-const { ropsten, kovan } = require('./config.json');
-const { endpoint, networkId, mnemonic, projectId, projectSecret } = kovan;
+require('dotenv').config();
+const { testnets } = require('./config.json');
+const { endpoint,
+        networkId,
+        mnemonic,
+        projectId,
+        projectSecret } = testnets[process.env.TESTNET];
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 
 require('babel-register');
