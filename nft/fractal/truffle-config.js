@@ -18,13 +18,14 @@ module.exports = {
       port: 7545,
       network_id: "*" // Match any network id
     },
-    ropsten: {
+    testnet: {
       provider: () => new HDWalletProvider(mnemonic, endpoint),
       network_id: networkId, 
       gas: 5500000,
+      gasPrice: 1000000000,
       confirmations: 2,
       timeoutBlocks: 200,
-      skipDryRun: true
+      skipDryRun: false
     }
   },
   contracts_directory: './contracts/',
